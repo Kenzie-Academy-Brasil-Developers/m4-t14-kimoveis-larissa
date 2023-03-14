@@ -9,16 +9,16 @@ import { ensureTokenIsValidMiddleware } from "../middlewares/ensureTokenIsValid.
 import { ensureIsAdminMiddleware } from "../middlewares/ensureIsAdmin.middleware";
 import { categorySchema } from "../schemas";
 
-const categoryRouter: Router = Router();
+const categoryRoutes: Router = Router();
 
-categoryRouter.post(
+categoryRoutes.post(
   "",
   ensureDataIsValidMiddleware(categorySchema),
   ensureTokenIsValidMiddleware,
   ensureIsAdminMiddleware,
   createCategoryController
 );
-categoryRouter.get("", listCategoriesController);
-categoryRouter.get("/:id/realEstate", listCategoriesAndRealEstateController);
+categoryRoutes.get("", listCategoriesController);
+categoryRoutes.get("/:id/realEstate", listCategoriesAndRealEstateController);
 
-export { categoryRouter };
+export default categoryRoutes;

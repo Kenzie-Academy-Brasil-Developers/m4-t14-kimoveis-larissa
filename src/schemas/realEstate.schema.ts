@@ -6,8 +6,8 @@ const realEstateSchema = z.object({
   value: z.number().positive().or(z.string()),
   size: z.number().int().positive(),
   address: addressSchema,
-  categoryId: z.number(),
   sold: z.boolean().default(false),
+  categoryId: z.number().optional(),
 });
 
 const realEstateResponseSchema = realEstateSchema

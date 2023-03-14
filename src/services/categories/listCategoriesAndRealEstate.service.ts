@@ -8,6 +8,7 @@ import { IRealEstateCategory } from "../../interfaces/realEstate.interfaces";
 const listCategoriesAndRealEstateService = async (categoryId: number) => {
   const realEstateRepository: Repository<RealEstate> =
     AppDataSource.getRepository(RealEstate);
+
   const categoryRepository: Repository<Category> =
     AppDataSource.getRepository(Category);
 
@@ -26,12 +27,12 @@ const listCategoriesAndRealEstateService = async (categoryId: number) => {
     },
   });
 
-  const realEstateFromCategory: IRealEstateCategory = {
+  const realEstateByCategory: IRealEstateCategory = {
     ...validatedCategory,
     realEstate,
   };
 
-  return realEstateFromCategory;
+  return realEstateByCategory;
 };
 
 export { listCategoriesAndRealEstateService };
