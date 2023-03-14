@@ -18,7 +18,7 @@ const userResponseSchema = userCreatedSchema.omit({
   password: true,
 });
 
-const userUpdateSchema = userCreatedSchema.partial().omit({
+const userUpdateSchema = userSchema.partial().omit({
   admin: true,
 });
 
