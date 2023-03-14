@@ -14,13 +14,14 @@ const userCreatedSchema = userSchema.extend({
   deletedAt: z.string().nullish().default(null),
 });
 
+const userResponseSchema = userCreatedSchema.omit({
+  password: true,
+});
+
 const userUpdateSchema = userCreatedSchema.partial().omit({
   admin: true,
 });
 
-const userResponseSchema = userSchema.omit({
-  password: true,
-});
 const listUsersSchema = userResponseSchema.array();
 
 export {
