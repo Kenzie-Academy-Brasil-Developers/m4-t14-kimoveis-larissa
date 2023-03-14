@@ -7,12 +7,12 @@ const realEstateSchema = z.object({
   size: z.number().int().positive(),
   address: addressSchema,
   categoryId: z.number(),
+  sold: z.boolean().default(false),
 });
 
 const realEstateResponseSchema = realEstateSchema
   .extend({
     id: z.number(),
-    sold: z.boolean().default(false),
     createdAt: z.string(),
     updatedAt: z.string(),
     address: addressResponseSchema,

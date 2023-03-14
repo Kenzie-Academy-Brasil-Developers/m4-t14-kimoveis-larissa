@@ -11,7 +11,7 @@ const ensureTokenIsValidMiddleware = async (
   let token = req.headers.authorization;
 
   if (!token) {
-    throw new AppError("Missing Bearer Token", 401);
+    throw new AppError("Missing bearer token", 401);
   }
 
   token = token.split(" ")[1];
